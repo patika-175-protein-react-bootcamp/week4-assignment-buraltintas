@@ -1,10 +1,8 @@
 .board {
-  width: 92%;
+  width: 100%;
   margin: 0 auto;
-  height: 100%;
-  padding-left: 13.4rem;
-  padding-top: 9rem;
-  padding-bottom: 4.4rem;
+  height: calc(100vh - 5rem);
+  padding-top: 5rem;
   display: flex;
   gap: 3rem;
 }
@@ -19,11 +17,12 @@
 
 .leftSide {
   position: relative;
-  width: 45%;
+  width: 50%;
+  text-align: end;
 }
 
 .rightSide {
-  width: 52%;
+  width: 50%;
 }
 
 .question {
