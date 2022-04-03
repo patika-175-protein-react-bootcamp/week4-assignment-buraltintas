@@ -8,13 +8,11 @@ import { QuestionsContext } from '../context/context';
 const Questions = () => {
   const {
     questions,
-    correctAnswer,
-    wrongAnswers,
     currentScore,
+    correctAnswer,
     tour,
     question,
     newQuestion,
-    nextTour,
     answerHandler,
     isCorrect,
     answersArray,
@@ -27,6 +25,8 @@ const Questions = () => {
 
   const background =
     isCorrect === true ? 'correct' : isCorrect === false ? 'wrong' : '';
+
+  const svgFill = isCorrect === null ? 'white' : '#2D2D2D';
 
   return (
     <div className={`${background} board`}>
@@ -51,8 +51,26 @@ const Questions = () => {
                 key={index}
                 onClick={() => answerHandler(option)}
               >
-                <AnswerCircle />
-                <p className={`option${index + 1} option`}>{option}</p>
+                {isCorrect === null && <AnswerCircle svgFill={'white'} />}
+                {isCorrect === true && (
+                  <AnswerCircle
+                    svgFill={option === correctAnswer ? '#2D2D2D' : 'white'}
+                  />
+                )}
+                {isCorrect === false && (
+                  <AnswerCircle
+                    svgFill={option === correctAnswer ? '#2D2D2D' : 'white'}
+                  />
+                )}
+                {isCorrect !== null && option === correctAnswer && (
+                  <p className={`option${index + 1} option black`}>{option}</p>
+                )}
+                {isCorrect !== null && option !== correctAnswer && (
+                  <p className={`option${index + 1} option`}>{option}</p>
+                )}
+                {isCorrect === null && (
+                  <p className={`option${index + 1} option`}>{option}</p>
+                )}
               </div>
             );
           })}

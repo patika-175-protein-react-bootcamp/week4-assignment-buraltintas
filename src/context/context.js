@@ -71,7 +71,7 @@ const QuestionsProvider = ({ children }) => {
     };
   }
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (questions.length === 10) {
