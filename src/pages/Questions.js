@@ -8,6 +8,7 @@ import { QuestionsContext } from '../context/context';
 const Questions = () => {
   const [selectedOption, setSelectedOption] = useState();
 
+  // getting data and functions from context
   const {
     questions,
     currentScore,
@@ -25,9 +26,11 @@ const Questions = () => {
     newQuestion();
   }, []);
 
+  // changing background color if answer is correct or not
   const background =
     isCorrect === true ? 'correct' : isCorrect === false ? 'wrong' : '';
 
+  // handling selected answer
   const handleOptionSelect = (e) => {
     setSelectedOption(e);
   };

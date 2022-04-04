@@ -6,6 +6,7 @@ import arrayShuffle from 'array-shuffle';
 const QuestionsContext = React.createContext();
 
 const QuestionsProvider = ({ children }) => {
+  // initializing state
   const [questions, setQuestions] = useState([]);
   const [correctAnswer, setCorrectAnswer] = useState();
   const [correctAnswersNumber, setCorrectAnswersNumber] = useState(0);
@@ -16,6 +17,7 @@ const QuestionsProvider = ({ children }) => {
   const [isCorrect, setIsCorrect] = useState(null);
   const [answersArray, setAnswersArray] = useState([]);
 
+  // function for resetting variables
   const reset = () => {
     setQuestions([]);
     setCorrectAnswer();
@@ -27,6 +29,7 @@ const QuestionsProvider = ({ children }) => {
     setAnswersArray([]);
   };
 
+  // setting new question, correct answer and wrong answers
   const newQuestion = () => {
     setIsCorrect(null);
     let num1 = Math.floor(Math.random() * 10) + 1;
@@ -45,6 +48,7 @@ const QuestionsProvider = ({ children }) => {
     setAnswersArray(shuffled);
   };
 
+  // function that check if answer is correct or not. if correct - increase score, if wrong - dont increase score. pushing the question to questions state
   let answerHandler;
 
   if (isCorrect === null) {
@@ -71,6 +75,7 @@ const QuestionsProvider = ({ children }) => {
     };
   }
 
+  // if length of questions array === 10 - redirect to final page
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -110,6 +115,7 @@ const QuestionsProvider = ({ children }) => {
     }
   }, [questions]);
 
+  // increase tour and resetting variables
   const nextTour = () => {
     setTour(tour + 1);
     reset();

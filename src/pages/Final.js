@@ -10,6 +10,7 @@ import HeaderLine from '../constants/icons/HeaderLine';
 import '../styles/final.css';
 
 const Final = () => {
+  // getting data from context
   const { questions, currentScore, nextTour, correctAnswersNumber } =
     useContext(QuestionsContext);
 
