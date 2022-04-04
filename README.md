@@ -1,3 +1,23 @@
+# Week 4 Assignment
+
+Mathematics Game Homework
+
+- You will have 10 questions every tour.
+- When you select an answer if its correct background will be green, if its not correct background will be red and you will see the correct answer.
+- After 3 seconds you will have the new question.
+- At the end of game you will see the results of that tour and all questions.
+- You will see total points, total questions that you've answered and total correct questions on the first screen (from localStorage)
+
+Live: https://math-game-burak.netlify.app/
+
+![Alt text](https://i.ibb.co/1qWCQsN/Ekran-Resmi-2022-04-04-09-25-35.png?raw=true 'Optional Title')
+
+![Alt text](https://i.ibb.co/Y2MJLsg/Ekran-Resmi-2022-04-04-09-27-19.png?raw=true 'Optional Title')
+
+![Alt text](https://i.ibb.co/Q9X6cHN/Ekran-Resmi-2022-04-04-22-47-53.png?raw=true 'Optional Title')
+
+![Alt text](https://i.ibb.co/HrYV2yD/Ekran-Resmi-2022-04-04-09-28-36.png?raw=true 'Optional Title')
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
