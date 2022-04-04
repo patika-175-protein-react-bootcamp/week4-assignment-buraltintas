@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import '../styles/board.css';
 import BlackBoard from '../constants/icons/BlackBoard';
 import Text from '../components/Text';
@@ -6,6 +6,8 @@ import AnswerCircle from '../constants/icons/AnswerCircle';
 import { QuestionsContext } from '../context/context';
 
 const Questions = () => {
+  const [selectedOption, setSelectedOption] = useState();
+
   const {
     questions,
     currentScore,
@@ -26,10 +28,14 @@ const Questions = () => {
   const background =
     isCorrect === true ? 'correct' : isCorrect === false ? 'wrong' : '';
 
+  const handleOptionSelect = (e) => {
+    setSelectedOption(e);
+  };
+
   return (
     <div className={`${background} board`}>
       <div className='leftSide'>
-        <BlackBoard />
+        <BlackBoard className='board' />
         <p className='question'>{question}</p>
       </div>
 
@@ -47,27 +53,69 @@ const Questions = () => {
               <div
                 className={`answer${index + 1} answer`}
                 key={index}
-                onClick={() => answerHandler(option)}
+                onClick={() => {
+                  answerHandler(option);
+                  handleOptionSelect(option);
+                }}
               >
                 {isCorrect === null && <AnswerCircle svgFill={'white'} />}
+
                 {isCorrect === true && (
                   <AnswerCircle
                     svgFill={option === correctAnswer ? '#2D2D2D' : 'white'}
                   />
                 )}
+
                 {isCorrect === false && (
                   <AnswerCircle
-                    svgFill={option === correctAnswer ? '#2D2D2D' : 'white'}
+                    svgFill={
+                      option === selectedOption
+                        ? '#2D2D2D'
+                        : option === correctAnswer
+                        ? '#00bf63'
+                        : 'white'
+                    }
                   />
                 )}
-                {isCorrect !== null && option === correctAnswer && (
-                  <p className={`option${index + 1} option black`}>{option}</p>
+
+                {isCorrect === true && option === correctAnswer && (
+                  <div className='optionDiv'>
+                    <p className={`option${index + 1} option black`}>
+                      {option}
+                    </p>
+                  </div>
                 )}
-                {isCorrect !== null && option !== correctAnswer && (
-                  <p className={`option${index + 1} option`}>{option}</p>
+
+                {isCorrect === false && option === correctAnswer && (
+                  <div className='optionDiv'>
+                    <p className={`option${index + 1} option green`}>
+                      {option}
+                    </p>
+                  </div>
                 )}
+
+                {isCorrect !== null &&
+                  option !== correctAnswer &&
+                  option === selectedOption && (
+                    <div className='optionDiv'>
+                      <p className={`option${index + 1} option black`}>
+                        {option}
+                      </p>
+                    </div>
+                  )}
+
+                {isCorrect !== null &&
+                  option !== correctAnswer &&
+                  option !== selectedOption && (
+                    <div className='optionDiv'>
+                      <p className={`option${index + 1} option `}>{option}</p>
+                    </div>
+                  )}
+
                 {isCorrect === null && (
-                  <p className={`option${index + 1} option`}>{option}</p>
+                  <div className='optionDiv'>
+                    <p className={`option${index + 1} option`}>{option}</p>
+                  </div>
                 )}
               </div>
             );
