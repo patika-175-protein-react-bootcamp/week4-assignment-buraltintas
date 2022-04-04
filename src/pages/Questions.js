@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import '../styles/board.css';
-import BlackBoard from '../components/BlackBoard';
+import BlackBoard from '../constants/icons/BlackBoard';
 import Text from '../components/Text';
 import AnswerCircle from '../constants/icons/AnswerCircle';
 import { QuestionsContext } from '../context/context';
@@ -25,8 +25,6 @@ const Questions = () => {
 
   const background =
     isCorrect === true ? 'correct' : isCorrect === false ? 'wrong' : '';
-
-  const svgFill = isCorrect === null ? 'white' : '#2D2D2D';
 
   return (
     <div className={`${background} board`}>

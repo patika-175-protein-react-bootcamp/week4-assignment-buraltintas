@@ -22,3 +22,9 @@ body {
     font-size: 40%;
   }
 }
+
+@media (max-width: 50em) {
+  html {
+    font-size: 30%;
+  }
+}

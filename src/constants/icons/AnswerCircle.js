@@ -1,5 +1,4 @@
 const AnswerCircle = (props) => {
-  console.log(props.svgFill);
   return (
     <svg
       width='20.3rem'

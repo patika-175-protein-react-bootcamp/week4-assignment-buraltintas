@@ -42,7 +42,8 @@ const Final = () => {
             return (
               <div className='questions' key={index}>
                 <Text>
-                  {question.q} = {question.a}
+                  {question.q} ={' '}
+                  {question.q.split(' ')[0] * question.q.split(' ')[2]}
                 </Text>
                 {question.c ? <Correct /> : <Wrong />}
               </div>
