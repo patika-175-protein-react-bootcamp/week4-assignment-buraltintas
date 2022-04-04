@@ -77,7 +77,7 @@ const QuestionsProvider = ({ children }) => {
     if (questions.length === 10) {
       setTimeout(() => {
         navigate('../final', { replace: true });
-      }, 3000);
+      }, 2500);
 
       if (localStorage.getItem('totalPoints')) {
         const pointsFromStorage = +localStorage.getItem('totalPoints');
